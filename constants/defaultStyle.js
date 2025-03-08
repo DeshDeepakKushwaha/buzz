@@ -1,6 +1,7 @@
 export default {
   control: {
-    backgroundColor: "#fff",
+    backgroundColor: "black",
+    color: "white",
     fontSize: 14,
     fontWeight: "normal",
   },
@@ -37,14 +38,14 @@ export default {
   suggestions: {
     list: {
       backgroundColor: "white",
-      border: "1px solid rgba(0,0,0,0.15)",
+      border: "1px solid rgb(135,126,255)",
       fontSize: 14,
     },
     item: {
       padding: "5px 15px",
-      borderBottom: "1px solid rgba(0,0,0,0.15)",
+      borderBottom: "1px solid rgb(135,126,255)",
       "&focused": {
-        backgroundColor: "#cee4e5",
+        backgroundColor: "#877EFF",
       },
     },
   },
