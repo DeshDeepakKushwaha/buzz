@@ -365,7 +365,7 @@ export async function acceptCommunityRequest(
       emailAddress: emailAddress,
       inviterUserId: loggedInUserId,
       role: "org:member",
-      redirectUrl: "http://localhost:3000/onboarding",
+      redirectUrl: "https://thebuzz.vercel.app/onboarding",
     });
     const user = await User.findOne({ id: userId });
 
