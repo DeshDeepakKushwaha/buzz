@@ -26,7 +26,7 @@ async function Page({
     pageSize: 25,
   });
   let counter = 0;
-  let idObject = {};
+  let idObject: { [key: number]: ObjectId[] } = {};
   result.communities.map((community) => {
     let arr: ObjectId[] = [];
     community.members.map((member: any) => {

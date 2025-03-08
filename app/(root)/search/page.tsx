@@ -45,8 +45,7 @@ async function Page({
                 username={person.username}
                 imgUrl={person.image}
                 personType="User"
-                btnText="View"
-              />
+                btnText="View" isAdmin={false} loggedInUserId={""}              />
             ))}
           </>
         )}

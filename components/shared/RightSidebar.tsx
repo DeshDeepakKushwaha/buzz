@@ -19,7 +19,7 @@ async function RightSidebar() {
   let counter = 0;
 
   const suggestedCommunities = await fetchCommunities({ pageSize: 3 });
-  let idObject = {};
+  let idObject: { [key: number]: ObjectId[] } = {};
   suggestedCommunities.communities.map((community) => {
     let arr: ObjectId[] = [];
     community.members.map((member: any) => {
@@ -48,12 +48,9 @@ async function RightSidebar() {
                   username={community.username}
                   imgUrl={community.image}
                   personType="Community"
-                  btnText={
-                    idObject[index].toString().includes("" + loggedInUser._id)
-                      ? "View"
-                      : "Join"
-                  }
-                />
+                  btnText={idObject[index].toString().includes("" + loggedInUser._id)
+                    ? "View"
+                    : "Join"} isAdmin={false} loggedInUserId={""}                />
               ))}
             </>
           ) : (
@@ -78,8 +75,7 @@ async function RightSidebar() {
                   username={person.username}
                   imgUrl={person.image}
                   personType="User"
-                  btnText="View"
-                />
+                  btnText="View" isAdmin={false} loggedInUserId={""}                />
               ))}
             </>
           ) : (

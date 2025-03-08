@@ -32,7 +32,7 @@ export async function createCommunity(
     if (!user) {
       throw new Error("User not found"); // Handle the case if the user with the id is not found
     }
-
+    console.log("User found");
     const newCommunity = new Community({
       id,
       name,
@@ -47,7 +47,7 @@ export async function createCommunity(
     // Update User model
     user.communities.push(createdCommunity._id);
     await user.save();
-
+    console.log("Community created successfully");
     return createdCommunity;
   } catch (error) {
     // Handle any errors
@@ -365,7 +365,7 @@ export async function acceptCommunityRequest(
       emailAddress: emailAddress,
       inviterUserId: loggedInUserId,
       role: "org:member",
-      redirectUrl: "https://projectbuzz.vercel.app/onboarding",
+      redirectUrl: "http://localhost:3000/onboarding",
     });
     const user = await User.findOne({ id: userId });
 

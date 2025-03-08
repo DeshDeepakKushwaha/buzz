@@ -74,8 +74,7 @@ async function Page({ params }: { params: { id: string } }) {
                   username={member.username}
                   imgUrl={member.image}
                   personType="User"
-                  btnText="View"
-                />
+                  btnText="View" isAdmin={false} loggedInUserId={""}                />
               ))}
             </section>
           </TabsContent>
