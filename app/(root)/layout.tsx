@@ -11,6 +11,7 @@ import RightSidebar from "@/components/shared/RightSidebar";
 import Topbar from "@/components/shared/Topbar";
 
 import { Toaster } from "react-hot-toast";
+import { SidebarProvider } from "@/components/shared/SidebarContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,19 +34,20 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <Toaster />
+          <SidebarProvider>
+            <Topbar />
 
-          <Topbar />
+            <main className="flex flex-row">
+              <LeftSidebar />
+              <section className="main-container">
+                <div className="w-full max-w-4xl">{children}</div>
+              </section>
+              {/* @ts-ignore */}
+              <RightSidebar />
+            </main>
 
-          <main className="flex flex-row">
-            <LeftSidebar />
-            <section className="main-container">
-              <div className="w-full max-w-4xl">{children}</div>
-            </section>
-            {/* @ts-ignore */}
-            <RightSidebar />
-          </main>
-
-          <Bottombar />
+            <Bottombar />
+          </SidebarProvider>
         </body>
       </html>
     </ClerkProvider>
